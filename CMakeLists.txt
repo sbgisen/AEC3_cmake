@@ -82,3 +82,4 @@ target_include_directories(${PROJECT} PUBLIC
 set_target_properties(${PROJECT} PROPERTIES LINKER_LANGUAGE CXX)
 
 install(TARGETS ${PROJECT} DESTINATION lib)
+install(DIRECTORY api/ audio_processing/ base/ DESTINATION include/${PROJECT} FILES_MATCHING PATTERN "*.h")
