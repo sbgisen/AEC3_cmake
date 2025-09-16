@@ -59,7 +59,7 @@ set(SRC_FILES ${AECM_SRC}
     ${CMAKE_CURRENT_SOURCE_DIR}/audio_processing/utility/ooura_fft_tables_neon_sse2.h
 )
 
-add_library(${PROJECT} STATIC
+add_library(${PROJECT} SHARED
     ${SRC_FILES}
 )
 
