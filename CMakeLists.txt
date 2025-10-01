@@ -59,7 +59,7 @@ set(SRC_FILES ${AECM_SRC}
     ${CMAKE_CURRENT_SOURCE_DIR}/audio_processing/utility/ooura_fft_tables_neon_sse2.h
 )
 
-add_library(${PROJECT} STATIC
+add_library(${PROJECT} SHARED
     ${SRC_FILES}
 )
 
@@ -80,3 +80,9 @@ target_include_directories(${PROJECT} PUBLIC
 )
 
 set_target_properties(${PROJECT} PROPERTIES LINKER_LANGUAGE CXX)
+
+install(TARGETS ${PROJECT} DESTINATION lib)
+install(DIRECTORY api/ DESTINATION include/${PROJECT}/api FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY audio_processing/ DESTINATION include/${PROJECT}/audio_processing FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY base/ DESTINATION include/${PROJECT}/base FILES_MATCHING PATTERN "*.h")
+install(FILES build_config.h DESTINATION include/${PROJECT})
